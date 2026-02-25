@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions légales — 3Deliver</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
+
+    <style>
+        /* On cible uniquement le contenu principal pour ne pas toucher au header */
+        main {
+            max-width: 900px;
+            margin: 40px auto; /* Marge normale, le padding du body gère le haut */
+            padding: 20px;
+            line-height: 1.6;
+        }
+        main h2 {
+            margin-top: 30px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Bandeau supérieur -->
+    <header>
+        <div class="title-wrapper">
+            <img src="logo-512.png" alt="Logo 3Deliver" class="logo">
+            <h1>3Deliver</h1>
+        </div>
+
+        <p class="subtitle">Conception et impression 3D sur mesure</p>
+
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="services.html">Services</a>
+            <a href="realisations.html">Réalisations</a>
+            <a href="contact.html">Contact / Devis</a>
+        </nav>
+    </header>
+
+    <!-- ===== CONTENU ===== -->
+    <main>
+
+        <h1>Mentions légales</h1>
+
+        <h2>Éditeur du site</h2>
+
+        <p>
+            Le présent site est édité par :
+        </p>
+
+        <p>
+            Nom : Thomas BEAUCHAMP<br>
+            Nom commercial : 3Deliver<br>
+            Statut : Micro-entrepreneur<br>
+            Adresse : 23 Avenue Edouard Belin<br>
+            Email : tbeauchamp.pro@gmail.com<br>
+            SIRET : 92975941300016
+        </p>
+
+        <p>
+            Directeur de la publication : Thomas BEAUCHAMP
+        </p>
+
+
+        <h2>Hébergement</h2>
+
+        <p>
+            Le site est hébergé par :
+        </p>
+
+        <p>
+            Nom de l’hébergeur : GitHub, Inc.<br>
+            Adresse : 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis<br>
+            Contact : <a href="https://support.github.com" target="_blank">https://support.github.com</a><br>
+            Site web : <a href="https://github.com" target="_blank">https://github.com</a>
+        </p>
+
+
+        <h2>Propriété intellectuelle</h2>
+
+        <p>
+            L’ensemble des contenus présents sur ce site (textes, images, logo, graphismes, etc.)
+            est protégé par le droit d’auteur.
+        </p>
+
+        <p>
+            Toute reproduction, modification ou diffusion sans autorisation préalable est interdite.
+        </p>
+
+
+        <h2>Données personnelles</h2>
+
+        <p>
+            Les informations collectées via le formulaire de contact sont utilisées uniquement
+            pour répondre aux demandes de devis ou d’informations.
+        </p>
+
+        <p>
+            Conformément au Règlement Général sur la Protection des Données (RGPD),
+            vous pouvez demander l’accès, la modification ou la suppression de vos données
+            en contactant :
+        </p>
+
+        <p>
+            Email : tbeauchamp.pro@gmail.com
+        </p>
+
+
+        <h2>Cookies</h2>
+
+        <p>
+            Ce site n’utilise pas de cookies de suivi ou de mesure d’audience.
+        </p>
+
+    </main>
+
+    <!-- Script pour rétracter le header quand on scrolle -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const header = document.querySelector("header");
+        const titleWrapper = document.querySelector(".title-wrapper");
+        const subtitle = document.querySelector(".subtitle");
+        const nav = document.querySelector("nav");
+
+        const scrollDistance = 150; 
+
+        window.addEventListener("scroll", function () {
+            let scrollY = window.scrollY;
+            let ratio = Math.min(scrollY / scrollDistance, 1);
+
+            // 1. Réduction du padding du header
+            // On passe de 20px à 12px (au lieu de 5px) pour garder de l'épaisseur
+            let p = 20 - (12 * ratio); 
+            header.style.paddingTop = p + "px";
+            header.style.paddingBottom = p + "px";
+
+            // 2. Disparition et réduction du titre/logo
+            titleWrapper.style.opacity = 1 - ratio;
+            titleWrapper.style.maxHeight = (60 * (1 - ratio)) + "px";
+            titleWrapper.style.marginBottom = (10 * (1 - ratio)) + "px";
+
+            // 3. Disparition et réduction du sous-titre
+            subtitle.style.opacity = 1 - ratio;
+            subtitle.style.maxHeight = (30 * (1 - ratio)) + "px";
+            subtitle.style.marginBottom = (10 * (1 - ratio)) + "px";
+
+            // 4. Réduction des marges du menu nav
+            // On passe de 10px à 5px (au lieu de 0px) pour laisser respirer les boutons
+            let navSpace = 10 - (5 * ratio);
+            nav.style.marginTop = navSpace + "px";
+            nav.style.paddingTop = navSpace + "px";
+            nav.style.paddingBottom = navSpace + "px";
+        });
+    });
+    </script>
+
+    <!--footer-->
+    <footer class="footer-premium">
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+                <img src="logo-512.png" alt="Logo 3Deliver" class="footer-logo">
+                <h2>3Deliver</h2>
+                <p>
+                    Conception et impression 3D sur mesure pour particuliers et professionnels.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <a href="index.html">Accueil</a>
+                    <a href="services.html">Services</a>
+                    <a href="realisations.html">Réalisations</a>
+                    <a href="contact.html">Contact / Devis</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Informations</h4>
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <a href="contact.html">Demande de devis</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <p>Email : tbeauchamp.pro@gmail.com</p>
+                    <p>📍 Toulouse</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-line"></div>
+            <p>© 2026 3Deliver — Tous droits réservés</p>
+        </div>
+
+    </footer>
+
+</body>
+</html>
