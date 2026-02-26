@@ -1,0 +1,574 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    padding-top: 180px; 
+    
+    /* --- AJOUTS POUR COLLER LE FOOTER EN BAS --- */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Prend 100% de la hauteur de l'écran */
+}
+
+header {
+    position: fixed; /* On passe de sticky à fixed pour éviter les sauts */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    box-sizing: border-box; /* Important pour le calcul des largeurs */
+    transition: padding 0.1s ease-out; /* Ajoute cette ligne pour lisser le mouvement */
+}
+
+
+/*logo 3Deliver à côté du titre du site*/
+/* On s'assure que les éléments ont une hauteur bien définie pour le JS */
+.title-wrapper {
+    display: flex;
+    justify-content: center; /* Centre le contenu */
+    align-items: center;     /* Aligne verticalement */
+    width: 100%;
+    margin-bottom: 10px;
+    max-height: 60px;        
+    overflow: hidden;        
+    position: relative;
+}
+
+.subtitle {
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    max-height: 30px;
+    overflow: hidden;
+}
+
+.logo {
+    height: 50px;
+    width: auto;             /* Garde les proportions */
+    margin-right: 15px;      /* Espace entre logo et titre */
+    flex-shrink: 0;          /* Empêche le logo de s'écraser */
+    display: block;
+}
+
+.title-wrapper h1 {
+    margin: 0;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+/* ÉLÉMENT FANTÔME : Fait contrepoids au logo pour centrer le titre */
+/* Largeur du logo (50px env.) + margin (15px) = 65px */
+.title-wrapper::after {
+    content: "";
+    width: 65px; 
+    display: block;
+    flex-shrink: 0;
+}
+
+
+/*bandeau hero avec image en arrière plan*/
+.hero {
+    position: relative;
+    width: calc(100% - 60px); /* On s'aligne sur les marges des autres sections (30px de chaque côté) */
+    margin: 0 30px 30px 30px;
+    height: 450px;
+    border-radius: 12px;
+    overflow: hidden;
+    /* Remplace par le nom exact de ton fichier image */
+    background: url('images/atelier.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.5); /* Filtre noir transparent pour lire le texte */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero-overlay h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: white; /* On force le blanc ici */
+}
+
+.hero-overlay p {
+    font-size: 18px;
+    max-width: 600px;
+    margin-bottom: 25px;
+}
+
+.cta-button {
+    background-color: white;
+    color: black;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+}
+/**/
+
+/*sections*/
+section {
+    background-color: white;
+    margin: 30px;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.presentation-intro {
+    max-width: 1000px;
+    margin: 0 auto 30px auto;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+}
+
+#presentation h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+nav {
+    margin-top: 10px;
+    padding: 10px 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+}
+
+nav a:hover {
+    background: rgba(255,255,255,0.18);
+    transform: translateY(-2px);
+}
+
+nav a.active {
+    background: rgba(255,255,255,0.25);
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/*Pour la première section : Nos services divisée en 3*/
+.service-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.service-left, .service-right {
+    width: 45%;
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.service-bottom {
+    margin-top: 20px;
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+
+
+/* Responsive : pour les écrans plus petits que 768px */
+@media screen and (max-width: 768px) {
+    .service-row {
+        flex-direction: column; /* Empile les blocs verticalement */
+        align-items: center;    /* Centre les blocs horizontalement */
+        width: 100%;
+        margin-bottom : 0px;
+    }
+
+    .service-left, .service-right {
+        width: 100%;            /* Prend toute la largeur disponible */
+        box-sizing: border-box; /* FORCE le padding à rester à l'intérieur du bloc (évite le débordement) */
+        margin-bottom: 20px;    /* Espace entre les blocs */
+    }
+    
+    .service-bottom {
+        width: 100%;
+        box-sizing: border-box; /* Pareil pour le bloc du bas */
+        margin-top: 0px;
+    }
+}
+
+
+/*style pour le formulaire de devis*/
+form {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 20px auto; /*centre le formulaire*/
+    text-align: left;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+
+/*Gallerie de photos*/
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+#realisations h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.project-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.project-card h3 {
+    margin-top: 10px;
+}
+
+.project-card p {
+    margin-bottom: 10px;
+}
+
+
+/* Style spécifique pour la section En vrac */
+/* Style spécifique pour la section En vrac */
+#vrac {
+    margin-top: 50px;
+    background-color: #f9f9f9;
+}
+
+/* --- OPTIMISATION DE L'ESPACE : ÎLOTS CÔTE À CÔTE --- */
+
+#vrac .projects {
+    display: flex;
+    flex-direction: row;     /* On passe en ligne au lieu de colonne */
+    flex-wrap: wrap;         /* Autorise les îlots à se mettre les uns à côté des autres */
+    justify-content: center; /* Centre les îlots sur la page */
+    gap: 30px;               /* Espace entre les îlots */
+}
+
+#vrac .project-card {
+    /* On change le 1100px qui forçait l'îlot à prendre toute la place */
+    max-width: fit-content;  
+    margin: 0;               /* On enlève le margin auto qui empêchait le côte-à-côte */
+    flex: 0 1 auto;          /* L'îlot prend juste la place dont il a besoin */
+}
+
+/* On ne touche à rien d'autre pour garder tes formats d'images intacts */
+#vrac .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+#vrac .gallery-item {
+    flex: 0 1 auto;
+    max-width: 480px; /* Tes images gardent leur taille actuelle */
+}
+
+/* =========================
+   FOOTER PREMIUM MODERNE
+========================= */
+
+.footer-premium {
+    background: linear-gradient(180deg, #0d0d0d, #050505);
+    color: white;
+    padding: 20px 20px 20px;
+    margin-top: auto; /* Pousse le footer tout en bas si le contenu est court */
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* ===== Brand ===== */
+
+.footer-brand {
+    max-width: 320px;
+}
+
+.footer-logo {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.footer-brand h2 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.footer-brand p {
+    color: #bbbbbb;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+/* ===== Links ===== */
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.footer-column {
+    min-width: 160px;
+}
+
+.footer-column h4 {
+    margin-bottom: 15px;
+    font-size: 16px;
+    position: relative;
+}
+
+.footer-column h4::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: #ffffff;
+    margin-top: 6px;
+    opacity: 0.3;
+}
+
+.footer-column a {
+    display: block;
+    color: #bbbbbb;
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: all 0.25s ease;
+}
+
+.footer-column a:hover {
+    color: white;
+    transform: translateX(4px);
+}
+
+.footer-column p {
+    color: #bbbbbb;
+    margin: 6px 0;
+}
+
+/* ===== Bottom ===== */
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.footer-line {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #444, transparent);
+    margin-bottom: 15px;
+}
+
+.footer-bottom p {
+    color: #888;
+    font-size: 14px;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 768px) {
+
+    .footer-premium {
+        padding: 15px 10px; 
+    }
+
+    .footer-logo {
+        height: 35px; /* Était à 50px sur ordinateur */
+        margin-bottom: 8px; /* On réduit aussi un peu l'espace sous le logo */
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0px;
+    }
+
+    .footer-column h4::after {
+        display: none;
+    }
+
+    .footer-links {
+        justify-content: center;
+        gap: 0px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+    }
+
+    .footer-brand h2 {
+        font-size: 20px; /* Était à 26px initialement */
+    }
+
+    .footer-brand p {
+        font-size: 15px;
+        line-height: 1.4;
+        margin-top: 5px; /* Réduit l'espace sous le nom 3Deliver */
+    }
+
+    .footer-column h4 {
+        margin-bottom: 10px; /* Réduit l'espace sous les titres de colonnes */
+    }
+
+    .footer-column a {
+        margin-bottom: 5px; /* Rapproche les liens entre eux */
+    }
+
+    .footer-bottom {
+        margin-top: 10px; /* Un peu moins de vide avant la ligne de copyright */
+    }
+}
+
+
+
+/* ===================================================
+   ADAPTATION MOBILE & SMARTPHONE (FIN DU FICHIER)
+   =================================================== */
+
+/* 1. TABLETTES ET GRANDS TÉLÉPHONES (Jusqu'à 768px) */
+@media (max-width: 768px) {
+    body { font-size: 17px; }
+    h2 { font-size: 24px; }
+    .hero-overlay h2 { font-size: 28px; }
+    .hero-overlay p { font-size: 16px; }
+    
+    nav a {
+        font-size: 16px !important; 
+        padding: 8px 12px;
+        display: inline-block;
+    }
+
+    section { margin: 15px; padding: 20px; }
+
+    .footer-content { flex-direction: column; align-items: center; text-align: center; }
+    .footer-links { justify-content: center; }
+}
+
+/* 2. PETITS SMARTPHONES (Jusqu'à 500px) 
+   Ce bloc est placé APRÈS le 768px pour avoir la priorité */
+@media (max-width: 500px) {
+    header { padding: 10px 5px; }
+    
+    .title-wrapper { max-height: 45px; margin-bottom: 5px; }
+    .logo { height: 30px; margin-right: 10px; }
+    .title-wrapper h1 { font-size: 26px; }
+    .title-wrapper::after { width: 40px; } /* Ajustement contrepoids logo */
+    .subtitle { font-size: 15px; margin-bottom: 5px; }
+
+    /* On force la grille 2x2 ici */
+    nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        gap: 8px;
+        padding: 0 10px;
+        margin-top: 5px;
+    }
+
+    nav a {
+        /* On utilise !important pour gagner contre le bloc 768px ci-dessus */
+        font-size: 14px !important; 
+        margin: 0 !important;
+        padding: 8px 5px !important;
+        background: rgba(255, 255, 255, 0.1);
+        text-align: center;
+    }
+    
+    /* On ajuste le haut de page car le header devient plus haut avec 2 lignes */
+    body { padding-top: 210px; } 
+}
