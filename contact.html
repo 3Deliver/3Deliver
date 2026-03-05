@@ -25,7 +25,7 @@
         <p class="subtitle">Conception et impression 3D sur mesure</p>
 
         <nav>
-            <a href="/">Accueil</a>
+            <a href="index.html">Accueil</a>
             <a href="services.html">Services</a>
             <a href="realisations.html">Réalisations</a>
             <a href="contact.html"class="active">Contact / Devis</a>
@@ -35,29 +35,8 @@
 
     <!-- troisième section : Contact + devis-->
     <section id="contact">
-        <h2>Contact / Devis</h2>
-        <p>Décrivez votre projet et joignez vos fichiers si nécessaire (modèles 3D, photos, plans…).</p>
-        <p>Je vous répondrai rapidement avec un devis personnalisé (délai variant entre 24 et 48h).</p>
-
-        <form action="https://formsubmit.co/contact@3deliver.fr" method="POST" enctype="multipart/form-data">
-    
-            <label for="nom">Nom :</label><br>
-            <input type="text" id="nom" name="nom" required><br><br>
-
-            <label for="email">Email :</label><br>
-            <input type="email" id="email" name="email" required><br><br>
-
-            <label for="projet">Description du projet :</label><br>
-            <textarea id="projet" name="projet" required></textarea><br><br>
-
-            <label for="fichier">Joindre un fichier (stl, step, jpg…) 10 Mo max</label><br>
-            <input type="file" id="fichier" name="fichier"><br><br>
-
-            <button type="submit">Envoyer ma demande</button>
-
-            <input type="hidden" name="_subject" value="Nouvelle demande de devis 3Deliver">
-            <input type="hidden" name="_next" value="https://3deliver.fr/merci.html">
-        </form>
+        <iframe data-tally-src="https://tally.so/embed/obAWyb?dynamicHeight=1&formEventsForwarding=1" loading="lazy" width="100%" height="1355" frameborder="0" marginheight="0" marginwidth="0" title="Demander un devis - 3Deliver"></iframe>
+        <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
     </section>
 
     <!-- Script pour rétracter le header quand on scrolle -->
@@ -122,7 +101,7 @@
             <div class="footer-links">
                 <div class="footer-column">
                     <h4>Navigation</h4>
-                    <a href="/">Accueil</a>
+                    <a href="index.html">Accueil</a>
                     <a href="services.html">Services</a>
                     <a href="realisations.html">Réalisations</a>
                     <a href="contact.html">Contact / Devis</a>
@@ -152,5 +131,4 @@
 
 
 </body>
-
 </html>

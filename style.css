@@ -228,37 +228,7 @@ html {
 
 
 /*style pour le formulaire de devis*/
-form {
-    background-color: #e0e0e0;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 500px;
-    margin: 20px auto; /*centre le formulaire*/
-    text-align: left;
-}
 
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-button {
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #333;
-}
 
 
 /*Gallerie de photos*/
